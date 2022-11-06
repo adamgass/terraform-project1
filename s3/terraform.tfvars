@@ -1,1 +1,1 @@
-s3_bucket_name = "somerandoms3bucket-safs-sfs"
+s3_bucket_name = "<s3 bucket name>"
