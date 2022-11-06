@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "vpc-tf-backend-363638675288"
+    bucket         = "tf-s3-backend-092385772206"
     key            = "eks-tf.tfstate"
     region         = "us-east-1"
     dynamodb_table = "tf-lock-table"

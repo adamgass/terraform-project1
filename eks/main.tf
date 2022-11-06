@@ -5,8 +5,6 @@ locals {
   PublicSubnet1 = data.terraform_remote_state.vpc.outputs.PubSN1_id
   PublicSubnet2 = data.terraform_remote_state.vpc.outputs.PubSN2_id
   PublicSubnet3 = data.terraform_remote_state.vpc.outputs.PubSN3_id
-  eks-alb-sg = data.terraform_remote_state.vpc.outputs.eks-alb-sg
-  alb_s3_bucket = data.terraform_remote_state.s3.outputs.alb_s3_bucket
 }
 
 resource "aws_eks_cluster" "eks-cluster" {
@@ -128,28 +126,3 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly" {
   role       = aws_iam_role.AmazonEKSNodeRole.name
 }
 
-resource "aws_lb" "eks-alb" {
-  name               = "eks-alb"
-  internal           = false
-  load_balancer_type = "application"
-  security_groups    = [local.eks-alb-sg]
-  subnets            = [local.PublicSubnet1, local.PublicSubnet2, local.PublicSubnet3]
-
-  enable_deletion_protection = true
-
-  access_logs {
-    bucket  = local.alb_s3_bucket
-    prefix  = "Logs/alb-access-logs"
-    enabled = true
-  }
-}
-
-# locals {
-#   eks_asg = aws_eks_node_group.nodegroup1.resources
-#   value = local.eks_asg
-# }
-
-# resource "aws_autoscaling_attachment" "eks-alb-attachment" {
-#   autoscaling_group_name = local.value
-#   elb                    = aws_lb.eks-alb.id
-# }
