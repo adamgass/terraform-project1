@@ -1,6 +1,8 @@
 1.	Create an s3 bucket for the backend.  Copy the bucket name as you will need it later
 2.	Create DynamoDB table with the following values:
   a.	 ![image](https://user-images.githubusercontent.com/79755945/200183696-d03fae73-28e8-4566-9274-6bd26dadf775.png)
+  
+  
   b.	Copy the table name
 3.	Clone the git repository.  Move through each subdirectory and fill out these parameters
   a.	Vpc
@@ -64,4 +66,3 @@
 8.	Change directory into the elb subdirectory
   a.	Run terraform init
   b.	Run terraform apply
-  ![image](https://user-images.githubusercontent.com/79755945/200183659-5d91d8a7-0616-4f3e-ae5d-18c07aef8cdf.png)
