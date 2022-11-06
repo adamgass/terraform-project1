@@ -1,4 +1,4 @@
-region              = "us-east-1"
+region              = "<aws region>"
 VPCCIDR             = "10.1.0.0/16"
 PubSN1Cidr          = "10.1.128.0/20"
 PubSN2Cidr          = "10.1.144.0/20"
@@ -8,5 +8,5 @@ PvtSN2Cidr          = "10.1.32.0/19"
 PvtSN3Cidr          = "10.1.64.0/19"
 PublicIPv4Subnets   = true
 s3_backend_name     = "<s3 bucket name>"
-s3_backend_region   = "us-east-1"
+s3_backend_region   = "<aws region>"
 dynamodb_table_name = "<dynamodb table name>"

@@ -3,7 +3,7 @@ data "terraform_remote_state" "vpc" {
     config = {
         bucket = "<s3 bucket name>"
         key = "vpc-tf.tfstate"
-        region = "us-east-1"
+        region = "<aws region>"
     }
 }
 
@@ -12,6 +12,6 @@ data "terraform_remote_state" "s3" {
     config = {
         bucket = "<s3 bucket name>"
         key = "s3-tf.tfstate"
-        region = "us-east-1"
+        region = "<aws region>"
     }
 }

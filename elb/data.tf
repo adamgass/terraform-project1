@@ -21,6 +21,6 @@ data "terraform_remote_state" "ec2" {
     config = {
         bucket = "<s3 bucket name>"
         key = "ec2-tf.tfstate"
-        region = "us-east-1"
+        region = "<aws region>"
     }
 }
