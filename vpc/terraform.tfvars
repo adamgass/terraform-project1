@@ -1,0 +1,12 @@
+region              = "us-east-1"
+VPCCIDR             = "10.1.0.0/16"
+PubSN1Cidr          = "10.1.128.0/20"
+PubSN2Cidr          = "10.1.144.0/20"
+PubSN3Cidr          = "10.1.160.0/20"
+PvtSN1Cidr          = "10.1.0.0/19"
+PvtSN2Cidr          = "10.1.32.0/19"
+PvtSN3Cidr          = "10.1.64.0/19"
+PublicIPv4Subnets   = true
+s3_backend_name     = "vpc-tf-backend-363638675288"
+s3_backend_region   = "us-east-1"
+dynamodb_table_name = "tf-lock-table"
