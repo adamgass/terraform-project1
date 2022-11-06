@@ -1,7 +1,7 @@
 1.	Create an s3 bucket for the backend.  Copy the bucket name as you will need it later
-  2.	Create DynamoDB table with the following values:
-    a.	 ![image](https://user-images.githubusercontent.com/79755945/200183696-d03fae73-28e8-4566-9274-6bd26dadf775.png)
-    b.	Copy the table name
+2.	Create DynamoDB table with the following values:
+  a.	 ![image](https://user-images.githubusercontent.com/79755945/200183696-d03fae73-28e8-4566-9274-6bd26dadf775.png)
+  b.	Copy the table name
 3.	Clone the git repository.  Move through each subdirectory and fill out these parameters
   a.	Vpc
     i.	Terraform.tfvars
@@ -20,48 +20,48 @@
         1.	Bucket = s3 bucket created for backend
         2.	Region = s3 backend region
         3.	Dynamodb_table = name of table created in step 2
-c.	Elb
-i.	Terraform.tf
-1.	Bucket = s3 bucket created for backend
-2.	Region = s3 backend region
-3.	Dynamodb_table = name of table created in step 2
-ii.	Data.tf (for each terraform_remote_state label)
-1.	Bucket = s3 bucket created for backend
-2.	Region = s3 backend region
-d.	Eks
-i.	Terraform.tf
-1.	Bucket = s3 bucket created for backend
-2.	Region = s3 backend region
-3.	Dynamodb_table = name of table created in step 2
-ii.	Data.tf (for each terraform_remote_state label)
-1.	Bucket = s3 bucket created for backend
-2.	Region = s3 backend region
-e.	Ec2-ami
-i.	Terraform.tf
-1.	Bucket = s3 bucket created for backend
-2.	Region = s3 backend region
-3.	Dynamodb_table = name of table created in step 2
-ii.	Data.tf (for each terraform_remote_state label)
-1.	Bucket = s3 bucket created for backend
-2.	Region = s3 backend region
+  c.	Elb
+    i.	Terraform.tf
+      1.	Bucket = s3 bucket created for backend
+      2.	Region = s3 backend region
+      3.	Dynamodb_table = name of table created in step 2
+    ii.	Data.tf (for each terraform_remote_state label)
+      1.	Bucket = s3 bucket created for backend
+      2.	Region = s3 backend region
+  d.	Eks
+    i.	Terraform.tf
+      1.	Bucket = s3 bucket created for backend
+      2.	Region = s3 backend region
+      3.	Dynamodb_table = name of table created in step 2
+    ii.	Data.tf (for each terraform_remote_state label)
+      1.	Bucket = s3 bucket created for backend
+      2.	Region = s3 backend region
+      e.	Ec2-ami
+    i.	Terraform.tf
+      1.	Bucket = s3 bucket created for backend
+      2.	Region = s3 backend region
+      3.	Dynamodb_table = name of table created in step 2
+    ii.	Data.tf (for each terraform_remote_state label)
+      1.	Bucket = s3 bucket created for backend
+      2.	Region = s3 backend region
 4.	Change directory into the vpc subdirectory.
-a.	Run terraform init to initialize the backend
-b.	Run terraform apply -var-file=”terraform.tfvars”
-i.	This will create a key-pair and output a key file to the current working directory.  This key-pair will be used for ssh into the ec2 instances.  It will be uploaded to the s3 bucket we create in step 5
-ii.	If you experience errors with nacl association, run the same command again to replace tainted nacl objects
+  a.	Run terraform init to initialize the backend
+  b.	Run terraform apply -var-file=”terraform.tfvars”
+    i.	This will create a key-pair and output a key file to the current working directory.  This key-pair will be used for ssh into the ec2 instances.  It         will be uploaded to the s3 bucket we create in step 5
+    ii.	If you experience errors with nacl association, run the same command again to replace tainted nacl objects
 5.	Change into the s3 directory
-a.	Run terraform init
-b.	Run terraform apply
-i.	Enter the you aws account ID as the input variable.  This is used in the bucket policy
-c.	Upload the myKey.pem file to this s3 bucket
+  a.	Run terraform init
+  b.	Run terraform apply
+    i.	Enter the you aws account ID as the input variable.  This is used in the bucket policy
+  c.	Upload the myKey.pem file to this s3 bucket
 6.	Change directory into the eks subdirectory
-a.	Run terraform init
-b.	Run terraform apply -var-file=”terraform.tfvars”
-c.	The coredns addon may take a while to deploy
+  a.	Run terraform init
+  b.	Run terraform apply -var-file=”terraform.tfvars”
+  c.	The coredns addon may take a while to deploy
 7.	Change directory into the ec2-ami subdirectory
-a.	Run terraform init
-b.	Run terraform apply
+  a.	Run terraform init
+  b.	Run terraform apply
 8.	Change directory into the elb subdirectory
-a.	Run terraform init
-b.	Run terraform apply
-![image](https://user-images.githubusercontent.com/79755945/200183659-5d91d8a7-0616-4f3e-ae5d-18c07aef8cdf.png)
+  a.	Run terraform init
+  b.	Run terraform apply
+  ![image](https://user-images.githubusercontent.com/79755945/200183659-5d91d8a7-0616-4f3e-ae5d-18c07aef8cdf.png)
