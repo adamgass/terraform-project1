@@ -65,3 +65,4 @@
 8.	Change directory into the elb subdirectory
   a.	Run terraform init
   b.	Run terraform apply
+  
