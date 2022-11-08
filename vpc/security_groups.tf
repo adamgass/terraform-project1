@@ -56,7 +56,7 @@ resource "aws_security_group" "baston-host-sg" {
   description = "security group for bastion hosts"
   vpc_id      = aws_vpc.VPC.id
   ingress {
-    description = "allow port 80 traffic"
+    description = "allow port 22 traffic"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"

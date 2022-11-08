@@ -21,6 +21,6 @@ data "terraform_remote_state" "s3" {
   config = {
     bucket = "<s3 bucket name>"
     key    = "s3-tf.tfstate"
-    region = "<aws region>
+    region = "<aws region>"
   }
 }
